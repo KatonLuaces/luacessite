@@ -1,5 +1,7 @@
-.App {
-  text-align: center;
+:root {
+  --link-color: coral;
+  --pre-hover-color: coral;
+  --background-color: black;
 }
 
 .App-logo {
@@ -13,26 +15,112 @@
   }
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(60deg);
+  }
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: var(--background-color);
+  justify-content: center;
+  align-items: center;
+}
+
+.Main{
+  background-color: var(--background-color);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  /*max-width: 1260px;*/
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+a{
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+span{
+  color: var(--pre-hover-color);
+}
+
+
+li{
+  list-style-type: none;
+  padding: 5px;
+}
+
+.Icons-container{
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex: 20%;
+}
+
+.Performances-container{
+  display: flex;
+  width: 100%;
+}
+
+.Performance-image{
+  max-width: 100%;
+  max-height: 100%;
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: fowards; 
+}
+
+ul{
+  padding: 0;
+}
+
+.Content-container{
+  flex: 50%;
+  padding-left: 5em;
+}
+
+.Company-icon{
+  width: 3em;
+  height: 3em;
+  margin-bottom: .5em;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: fowards; 
+}
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+} 
+
+@media only screen and (max-width: 1000px){
+  .Main{
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+}
+
+li{
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: fowards; 
+  margin-top: .2em;
 }
