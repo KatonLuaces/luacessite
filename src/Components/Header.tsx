@@ -21,10 +21,11 @@ const mappleConfig = {
     tipPosition: 50
 }
 
+const iconsHeader =   <p>Where I've gotten my experience</p>   
+
 const WorkIcons = 
   <React.Fragment>   
     <ReactTooltip/> 
-    <p>Where I've gotten my experience</p>   
     <img data-tip="Google" className="Company-icon" src="google_logo.svg"></img>
     <img data-tip="Spectator Publishing Company" className="Company-icon" src="spec_logo_3.png"></img>
     <img data-tip="Contrast Optical" className="Company-icon" src="contrast.png"></img>
@@ -113,6 +114,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
          </ul> 
          </div>
         <div className="Icons-container">
+    {this.state.displayWork || this.state.displayProjects ? iconsHeader : <p/>}
           {this.state.displayWork ? WorkIcons : <div/>}
           {this.state.displayProjects ? ProjectIcons : <div/>}
         </div>
