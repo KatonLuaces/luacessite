@@ -30,15 +30,15 @@
   align-items: center;
 }
 
-.Main{
+.Main {
   background-color: var(--background-color);
-  min-height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  min-height: 100vh;
   /*max-width: 1260px;*/
 }
 
@@ -46,22 +46,21 @@
   color: #61dafb;
 }
 
-a{
+a {
   color: var(--link-color);
   text-decoration: none;
 }
 
-span{
+span {
   color: var(--pre-hover-color);
 }
 
-
-li{
+li {
   list-style-type: none;
   padding: 5px;
 }
 
-.Icons-container{
+.Icons-container {
   margin: 1em;
   display: flex;
   flex-direction: column;
@@ -71,56 +70,75 @@ li{
   flex: 20%;
 }
 
-.Performances-container{
+.Performances-container {
   display: flex;
   width: 100%;
+  justify-content: space-around;
 }
 
-.Performance-image{
+.Performance-image {
   max-width: 100%;
   max-height: 100%;
   animation: fadeInAnimation ease 5s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: fowards; 
+  animation-iteration-count: 1;
+  animation-fill-mode: fowards;
 }
 
-ul{
+ul {
   padding: 0;
 }
 
-.Content-container{
+.Content-container {
   flex: 50%;
   padding-left: 5em;
 }
 
-.Company-icon{
+.Company-icon {
   width: 3em;
   height: 3em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: fowards; 
+  animation-iteration-count: 1;
+  animation-fill-mode: fowards;
 }
 
-@keyframes fadeInAnimation { 
-  0% { 
-      opacity: 0; 
-  } 
-  100% { 
-      opacity: 1; 
-   } 
-} 
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-@media only screen and (max-width: 1000px){
-  .Main{
+@media only screen and (max-width: 1000px) {
+  .Main {
     flex-direction: column;
   }
-
 }
 
-li{
+li {
   animation: fadeInAnimation ease 2s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: fowards; 
-  margin-top: .2em;
+  animation-iteration-count: 1;
+  animation-fill-mode: fowards;
+  margin-top: 0.2em;
+}
+
+.external-link {
+  margin-top: 0;
+  color: white;
+  font-size: 0.5em;
+  text-decoration: underline;
+  margin-right: 0.5em;
+}
+
+.external-wrapper {
+  display: flex;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: fowards;
+}
+
+.name {
+  margin-bottom: 0;
 }
