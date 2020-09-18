@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Externals } from "./Externals";
+import { animateScroll as scroll, Events, ScrollElement } from "react-scroll";
+import { scrollToBottom } from "react-scroll/modules/mixins/animate-scroll";
+
 type HeaderProps = {
   name?: string;
 };
@@ -92,6 +95,13 @@ export class Header extends Component<HeaderProps, HeaderState> {
 
   componentDidMount() {
     this.getColor.bind(this);
+    Events.scrollEvent.register("begin", function () {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register("end", function () {
+      console.log("end", arguments);
+    });
   }
 
   showWork = () => {
@@ -107,7 +117,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
   };
 
   showPerformances = () => {
-    this.setState({ displayPerformances: true });
+    this.setState({ displayPerformances: true }, () => scroll.scrollToBottom());
   };
 
   showPrimaryInterest = () => {
@@ -158,7 +168,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
                   onClick={this.showSchool}
                 >
                   {" "}
-                  school{" "}
+                  school
                 </span>
                 ,
                 <span
@@ -166,7 +176,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
                   onClick={this.showWork}
                 >
                   {" "}
-                  work{" "}
+                  work
                 </span>
                 , and
                 <span
@@ -189,14 +199,14 @@ export class Header extends Component<HeaderProps, HeaderState> {
               </li>
               {this.state.displaySchool ? (
                 <li>
-                  I am a student at Columbia University studying Computer
-                  Science with a focus on
+                  I am a student at Columbia University studying computer
+                  science with a focus on
                   <span
                     style={this.getColor(this.state.displayPrimaryInterest)}
                     onClick={this.showPrimaryInterest}
                   >
                     {" "}
-                    Intelligent Systems{" "}
+                    intelligent systems{" "}
                   </span>{" "}
                 </li>
               ) : (
@@ -205,8 +215,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
               {this.state.displayPrimaryInterest ? (
                 <li>
                   I am interested in how artificial intelligence techniques can
-                  improve decision making and our understanding of social
-                  phenomenon
+                  improve decision making
                 </li>
               ) : (
                 <React.Fragment />
